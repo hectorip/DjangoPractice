@@ -9,5 +9,10 @@ def catalog_index(request):
     """
     return HttpResponse("Holi")
 
+
 def book(request):
     return render(request, 'catalog/index.html')
+
+
+def author(request):
+    return render(request, 'catalog/author.html')

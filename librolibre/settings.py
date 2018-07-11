@@ -55,7 +55,7 @@ ROOT_URLCONF = 'librolibre.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['librolibre/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
