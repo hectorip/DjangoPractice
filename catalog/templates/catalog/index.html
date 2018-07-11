@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2> Home del catálogo </h2>
+<h2> Bienvenido a Libro Libre</h2>
+<p>Estos son los libros disponibles</p>
+
+<ul>
+    {% for book in books %}
+        <li><a href="/catalog/libro/{{book.id}}">{{ book.title }}</a> - {{ book.author.name }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

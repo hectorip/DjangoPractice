@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Autor</h2>
+    <h2>Autores</h2>
+    <p> Tenemos libros de los siguientes autores</p>
+    <ul>
+        {% for author in authors %}
+            <li>{{ author.name }}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

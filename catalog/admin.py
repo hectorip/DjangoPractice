@@ -13,3 +13,8 @@ class BookAdmin(admin.ModelAdmin):
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     model = Author
+
+
+@admin.register(Country)
+class CountryAdmin(admin.ModelAdmin):
+    model = Country
