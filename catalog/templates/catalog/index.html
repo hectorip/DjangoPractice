@@ -6,7 +6,8 @@
 
 <ul>
     {% for book in books %}
-        <li><a href="/catalog/libro/{{book.id}}">{{ book.title }}</a> - {{ book.author.name }}</li>
+        <li><a href="/catalog/libro/{{book.id}}">{{ book.title }}</a> - 
+            <a href="/catalog/autor/{{book.author.id}}">{{ book.author.name }}</a></li>
     {% endfor %}
 </ul>
 

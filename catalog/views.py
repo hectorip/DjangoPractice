@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 
-from .models import Book, Author
+from .models import Book, Author, Country
 # Create your views here.
 
 # daniel nos va explicar que tiene Request
@@ -19,10 +19,7 @@ def catalog_index(request):
 
 
 def book(request, id):
-    try:
-        book = Book.objects.get(pk=id)
-    except Exception:
-        return render(request, '404.html', status=404)
+    book = get_object_or_404(Book, pk=id)
 
     context = {
         "book": book
@@ -41,5 +38,29 @@ def author(request):
     return render(
         request,
         'catalog/author.html',
+        context=context
+    )
+
+def author_detail(request, id):
+    # author = Author.objects.get(pk=id)
+    author = get_object_or_404(Author, pk=id)
+    context = {
+        "author": author
+    }
+    return render(
+        request,
+        'catalog/author_detail.html',
+        context=context
+    )
+
+def country_detail(request, id):
+    country = get_object_or_404(Country, pk=id)
+    context = {
+        "country": country
+    }
+
+    return render(
+        request,
+        'catalog/country_detail.html',
         context=context
     )
