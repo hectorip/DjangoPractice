@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Registra tu libro</h2>
+
+<form method='POST'>
+    {% csrf_token %}
+    <div>
+        <label for="title"> Título del libro</label>
+        <input type="text" name="title" placeholder="El Principito">
+    </div>
+    <div>
+        <label for="description"> Descripción</label>
+        <textarea name="description" placeholder="El Principito..."> </textarea>
+    </div>
+    <dir>
+        <label for="author"> Autor </label>
+        <select name="author">
+            <option value=""> Selecciona un autor </option>
+            <option value="1"> Antoine Saint Exupery </option>
+        </select>
+    </dir>
+    <input type="submit" value="Registrar">
+</form>
+
+{% endblock %}

@@ -30,14 +30,14 @@ def book(request, id):
         context=context)
 
 
-def author(request):
+def author_index(request):
     authors = Author.objects.all()
     context = {
         "authors": authors
     }
     return render(
         request,
-        'catalog/author.html',
+        'catalog/authors.html',
         context=context
     )
 
@@ -64,3 +64,36 @@ def country_detail(request, id):
         'catalog/country_detail.html',
         context=context
     )
+
+
+def register_book(request):
+
+    if request.method == 'POST':
+        # Get information
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        author = request.POST.get('author')
+
+        # stored_author = Author.objects.get(pk=author)
+
+        # Creating Object
+        book = Book.objects.create(
+            title=title,
+            description=description,
+            author_id=author
+        )
+
+        # Return Response
+        context = {
+            "book": book
+        }
+        return render(
+            request,
+            'catalog/book.html',
+            context=context
+        )
+
+    else:
+        return render(
+            request, 
+            'catalog/book_registration.html')

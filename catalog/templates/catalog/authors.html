@@ -5,7 +5,7 @@
     <p> Tenemos libros de los siguientes autores</p>
     <ul>
         {% for author in authors %}
-            <li>{{ author.name }}</li>
+            <li><a href="{% url 'author_detail' author.id %}">{{ author.name }}</li>
         {% endfor %}
     </ul>
 

@@ -7,7 +7,7 @@
 <h4>Autores</h4>
 <ul>
 {% for author in country.authors.all %}
-    <li>{{ author.name }}</li>
+    <li><a href="{% url 'catalog:author_detail' author.id %}">{{ author.name }} </a></li>
 {% endfor %}
 </ul>
 {% endblock %}

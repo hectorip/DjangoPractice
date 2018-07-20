@@ -6,7 +6,7 @@
 <p> {{ author.biography }}</p>
 
 <h4>País</h4>
-<a href="{% url 'country_detail' author.country.id %}">{{ author.country.name }}</a>
+<a href="{% url 'catalog:country_detail' author.country.id %}">{{ author.country.name }}</a>
 
 <h3> Libros </h3>
 
